@@ -1,10 +1,11 @@
 package com.radsoltan;
 
 import com.radsoltan.chars.ScrabbleCommunity;
+import com.radsoltan.lists.HandShake;
 
 public class Main {
     public static void main(String[] args) {
-        ScrabbleCommunity scrabble = new ScrabbleCommunity("cabbage");
-        System.out.println(scrabble.getScore());
+        HandShake handShake = new HandShake();
+        System.out.println(handShake.calculateHandshake(111));
     }
 }
