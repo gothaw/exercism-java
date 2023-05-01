@@ -18,11 +18,11 @@ public class ResistorColor {
         COLORS.put("WHITE", 9);
     }
 
-    int colorCode(String color) {
+    public int colorCode(String color) {
         return COLORS.get(color.toUpperCase());
     }
 
-    String[] colors() {
+    public String[] colors() {
         return COLORS.keySet()
                 .stream()
                 .map(String::toLowerCase)
