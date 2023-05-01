@@ -1,13 +1,13 @@
 package com.radsoltan;
 
-import com.radsoltan.num.Grains;
+
+import com.radsoltan.arrays.ResistorColor;
+
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Grains grains = new Grains();
-        System.out.println(grains.grainsOnSquare(1));
-        System.out.println(grains.grainsOnSquare(2));
-        System.out.println(grains.grainsOnSquare(3));
-        System.out.println(grains.grainsOnSquare(4));
+        ResistorColor resistorColor = new ResistorColor();
+        System.out.println(Arrays.toString(resistorColor.colors()));
     }
 }
