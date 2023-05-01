@@ -1,12 +1,13 @@
 package com.radsoltan;
 
-import com.radsoltan.arrays.DnDCharacter;
-
-import java.util.List;
+import com.radsoltan.num.Grains;
 
 public class Main {
     public static void main(String[] args) {
-        DnDCharacter dnDCharacter = new DnDCharacter();
-        System.out.println(dnDCharacter.modifier(3));
+        Grains grains = new Grains();
+        System.out.println(grains.grainsOnSquare(1));
+        System.out.println(grains.grainsOnSquare(2));
+        System.out.println(grains.grainsOnSquare(3));
+        System.out.println(grains.grainsOnSquare(4));
     }
 }
