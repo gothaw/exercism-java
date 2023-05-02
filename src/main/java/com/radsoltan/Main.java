@@ -1,10 +1,10 @@
 package com.radsoltan;
 
-import com.radsoltan.arrays.ProteinTranslator;
+import com.radsoltan.arrays.ProteinTranslatorCommunity;
 
 public class Main {
     public static void main(String[] args) {
-        ProteinTranslator proteinTranslator = new ProteinTranslator();
-        proteinTranslator.translate("UGG");
+        ProteinTranslatorCommunity proteinTranslatorCommunity = new ProteinTranslatorCommunity();
+        proteinTranslatorCommunity.translate("UUUUUAUCUUAC");
     }
 }
