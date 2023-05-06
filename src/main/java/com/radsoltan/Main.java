@@ -1,11 +1,11 @@
 package com.radsoltan;
 
-import com.radsoltan.strings.SayCommunity;
+import com.radsoltan.strings.SayCommunityMap;
 
 public class Main {
     public static void main(String[] args) {
-        SayCommunity sayCommunity = new SayCommunity();
+        SayCommunityMap sayCommunity = new SayCommunityMap();
 
-        System.out.println(sayCommunity.say(100));
+        System.out.println(sayCommunity.say(987_654_321_123L));
     }
 }
