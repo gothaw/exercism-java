@@ -2,6 +2,10 @@ package com.radsoltan.lists;
 
 import java.util.NoSuchElementException;
 
+/**
+ * Community Edition similar to mine
+ * @param <T>
+ */
 public class DoublyLinkedList<T> {
     private Element<T> head = null;
     private int length = 0;
