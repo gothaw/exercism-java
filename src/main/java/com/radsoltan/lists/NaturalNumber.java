@@ -1,11 +1,9 @@
 package com.radsoltan.lists;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.IntStream;
 
 public class NaturalNumber {
     private final int number;
-    private final Set<Integer> factors = new HashSet<>();
 
     public NaturalNumber(int number) {
         if (number <= 0) {
@@ -15,16 +13,8 @@ public class NaturalNumber {
     }
 
     public Classification getClassification() {
-        for (int i = 1; i < number; i++) {
-            if (number % i == 0) {
-                factors.add(i);
-                if (i != 1) {
-                    factors.add(number / i);
-                }
-            }
-        }
-
-        int sum = factors.stream()
+        int sum = IntStream.range(1, number)
+                .filter(i -> number % i == 0)
                 .reduce(Integer::sum)
                 .orElse(0);
 
