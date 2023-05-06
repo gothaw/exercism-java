@@ -1,12 +1,11 @@
 package com.radsoltan;
 
-
-import com.radsoltan.lists.NaturalNumber;
+import com.radsoltan.strings.SayCommunity;
 
 public class Main {
     public static void main(String[] args) {
-        NaturalNumber number = new NaturalNumber(24);
+        SayCommunity sayCommunity = new SayCommunity();
 
-        System.out.println(number.getClassification());
+        System.out.println(sayCommunity.say(100));
     }
 }
