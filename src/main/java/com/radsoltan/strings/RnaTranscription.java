@@ -14,12 +14,14 @@ public class RnaTranscription {
     }
 
     public String transcribe(String dnaStrand) {
-        return dnaStrand.chars().mapToObj(c -> {
-            char strand = (char) Character.toUpperCase(c);
-            if (MAPPING.containsKey(strand)) {
-                return MAPPING.get(strand).toString();
-            }
-            return String.valueOf(strand);
-        }).reduce("", (a, b) -> a + b);
+        return dnaStrand
+                .chars()
+                .map(Character::toUpperCase)
+                .mapToObj(c -> {
+                    if (MAPPING.containsKey((char) c)) {
+                        return MAPPING.get((char) c).toString();
+                    }
+                    return String.valueOf(c);
+                }).reduce("", (a, b) -> a + b);
     }
 }
