@@ -1,23 +1,17 @@
 package com.radsoltan.arrays;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Matrix {
     private final int[][] matrix;
 
     Matrix(String matrixAsString) {
-        String[] rows = matrixAsString.split("\n");
-
-        matrix = new int[rows.length][];
-        IntStream.range(0, rows.length)
-                .forEach(i -> {
-                    String[] row = rows[i].split("\s");
-                    matrix[i] = Arrays.stream(row)
-                            .map(String::trim)
-                            .mapToInt(Integer::parseInt)
-                            .toArray();
-                });
+        matrix = Arrays.stream(matrixAsString.split("\n"))
+                .map(row -> Arrays.stream(row.split("\s"))
+                        .map(String::trim)
+                        .mapToInt(Integer::parseInt)
+                        .toArray()
+                ).toArray(int[][]::new);
     }
 
     int[] getRow(int rowNumber) {
