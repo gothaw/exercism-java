@@ -1,11 +1,11 @@
 package com.radsoltan;
 
-import com.radsoltan.num.SpaceAge;
+import com.radsoltan.chars.RotationalCipher;
 
 public class Main {
     public static void main(String[] args) {
-        SpaceAge spaceAge = new SpaceAge(2000000000L);
+        RotationalCipher rotationalCipher = new RotationalCipher(5);
 
-        System.out.println(spaceAge.onSaturn());
+        System.out.println(rotationalCipher.rotate("OMG"));
     }
 }

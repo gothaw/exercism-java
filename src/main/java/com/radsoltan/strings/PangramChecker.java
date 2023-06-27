@@ -8,7 +8,7 @@ public class PangramChecker {
     private static final Set<Character> CHARACTERS = new HashSet<>();
 
     static {
-        for (char c = 'a'; c < 'z'; c++) {
+        for (char c = 'a'; c <= 'z'; c++) {
             CHARACTERS.add(c);
         }
     }
