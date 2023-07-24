@@ -1,11 +1,13 @@
 package com.radsoltan;
 
-import com.radsoltan.chars.RotationalCipher;
+import com.radsoltan.lists.SaddlePoints;
+
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        RotationalCipher rotationalCipher = new RotationalCipher(5);
+        SaddlePoints saddlePoints = new SaddlePoints(Collections.emptyList());
 
-        System.out.println(rotationalCipher.rotate("OMG"));
+        saddlePoints.getSaddlePoints();
     }
 }
