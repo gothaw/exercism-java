@@ -1,6 +1,7 @@
 package com.radsoltan.lists;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class SaddlePoints {
@@ -16,26 +17,16 @@ public class SaddlePoints {
     }
 
     public Set<MatrixCoordinate> getSaddlePoints() {
-        Set<MatrixCoordinate> saddlePoints = new HashSet<>();
-
         List<Integer> maxInRows = values.stream().map(Collections::max).toList();
         List<Integer> minInColumns = IntStream.range(0, columns).mapToObj(i ->
                 Collections.min(values.stream().map(row -> row.get(i)).toList())
         ).toList();
 
-        IntStream.range(0, rows).forEach(i -> {
-            List<Integer> row = values.get(i);
-
-            IntStream.range(0, columns).forEach(j -> {
-                boolean isHighestInRow = maxInRows.get(i).equals(row.get(j));
-                boolean isLowestInColumn = minInColumns.get(j).equals(row.get(j));
-                if (isHighestInRow && isLowestInColumn) {
-                    saddlePoints.add(new MatrixCoordinate(i + 1, j + 1));
-                }
-            });
-        });
-
-        return saddlePoints;
+        return IntStream.range(0, rows).boxed().flatMap(i ->
+            IntStream.range(0, columns)
+                    .filter(j -> maxInRows.get(i).equals(minInColumns.get(j)))
+                    .mapToObj(j -> new MatrixCoordinate(i + 1, j + 1))
+        ).collect(Collectors.toSet());
     }
 
     private class MatrixCoordinate implements Comparable<MatrixCoordinate> {
