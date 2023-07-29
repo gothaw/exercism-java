@@ -12,7 +12,7 @@ public class WordCountCommunity {
                         .replaceAll("[^a-z0-9' ]", " ")
                         .trim()
                         .split("\\s+"))
-                .map(chunk -> chunk.replaceAll("^'|'$", ""))
+                .map(chunk -> chunk.replaceAll("^'|'$", "")) // replaces single quotes
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, chunk -> chunk.getValue().intValue()));
