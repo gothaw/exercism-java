@@ -22,7 +22,8 @@ public class BinarySearch<T extends Comparable<T>> {
         List<T> right = list.subList(splitIndex, list.size());
 
         if (a.compareTo(middle) == 0) {
-            return index + splitIndex;
+            index += splitIndex;
+            return index;
         } else if (splitIndex == 0) {
             throw new ValueNotFoundException("Value not in array");
         } else if (a.compareTo(middle) < 0) {
