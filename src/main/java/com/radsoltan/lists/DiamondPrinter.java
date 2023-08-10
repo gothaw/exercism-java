@@ -1,33 +1,31 @@
 package com.radsoltan.lists;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class DiamondPrinter {
+    private static final int LETTER_A_CODE = 65;
+
     List<String> printToList(char a) {
-        List<String> list = new ArrayList<>();
-        char capital = Character.toUpperCase(a);
+        int size = 2 * (a - LETTER_A_CODE) + 1;
+        String emptyRow = String.join("", Collections.nCopies(size, " "));
 
-        if (capital < 65 || capital > 90) {
-            throw new IllegalArgumentException("Not a valid letter.");
-        }
-        int length = 2 * (capital - 65) + 1;
-        String emptyRow = String.join("", Collections.nCopies(length, " "));
+        return IntStream.range(0, size)
+                .mapToObj(i -> {
+                    StringBuilder row = new StringBuilder(emptyRow);
 
-        for (int i = 0; i <= (capital - 65); i++) {
-            StringBuilder row = new StringBuilder(emptyRow);
-            row.setCharAt((int) (0.5 * length - i), (char) (i + 65));
-            row.setCharAt((int) (0.5 * length + i), (char) (i + 65));
-            list.add(row.toString());
-        }
-        List<String> reversed = new ArrayList<>(list);
-        Collections.reverse(reversed);
-        reversed.remove(0);
-        list.addAll(reversed);
+                    if (i < a - LETTER_A_CODE) {
+                        row.setCharAt((int) (0.5 * size - i), (char) (i + LETTER_A_CODE));
+                        row.setCharAt((int) (0.5 * size + i), (char) (i + LETTER_A_CODE));
+                    } else {
+                        // i = a - LETTER_A_CODE
+                        row.setCharAt((int) (i - 0.5 * size + 1), (char) (a - (i - (a - LETTER_A_CODE))));
+                        row.setCharAt((int) (size - (i - 0.5 * size) - 1), (char) (a - (i - (a - LETTER_A_CODE))));
+                    }
 
-        return list;
+                    return row.toString();
+                })
+                .toList();
     }
 }
